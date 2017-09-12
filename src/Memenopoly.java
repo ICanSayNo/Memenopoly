@@ -4,10 +4,10 @@ public class Memenopoly {
 	JFrame frame;
 	final static int frameHeight=950;
 	final static int frameWidth=1800;
-	GamePanel gamePanel;
+	MemeGamePanel gamePanel;
 	public Memenopoly() {
 		frame = new JFrame();
-		gamePanel = new GamePanel();
+		gamePanel = new MemeGamePanel();
 		frame.addKeyListener(gamePanel);
 		setup();
 	}
