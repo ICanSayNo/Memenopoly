@@ -8,7 +8,9 @@ public class Logo extends GameObject  {
 
 
 		void draw(Graphics g) {
-			g.drawImage(MemeGamePanel.memenopolyImg, x, y, width, height, null);
-		}
+			if(MemeGamePanel.memenopolyImg!=null) {
+			g.drawImage(MemeGamePanel.memenopolyImg, x, y, null);
+			}
+			}
 
 }

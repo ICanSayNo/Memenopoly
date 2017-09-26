@@ -17,14 +17,14 @@ public class MemeGamePanel extends JPanel implements ActionListener, KeyListener
 	Logo l=new Logo(250,250,250,250);
 	
 	public MemeGamePanel() {
+		ObjectManager o = new ObjectManager();
 		
 		try {
-			memenopolyImg = ImageIO.read(this.getClass().getResourceAsStream("Memenopoly_38b659_1764926.jpg"));
+			memenopolyImg = ImageIO.read(this.getClass().getResourceAsStream("L0g0.jpg"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		l.draw(getGraphics());
 	}
 	
 	
@@ -53,24 +53,7 @@ public class MemeGamePanel extends JPanel implements ActionListener, KeyListener
 			
 	}
 		public void paintComponent(Graphics g){
-			Spaces s0 = new Spaces(1150,800,120,90);
-			s0.draw(g);
-			Spaces s1 = new Spaces(1010,800,120,90);
-			s1.draw(g);
-			Spaces s2 = new Spaces(870,800,120,90);
-			s2.draw(g);
-			Spaces s3 = new Spaces(730,800,120,90);
-			s3.draw(g);
-			Spaces s4 = new Spaces(590,800,120,90);
-			s4.draw(g);
-			Spaces s5 = new Spaces(450,800,120,90);
-			s5.draw(g);
-			Spaces s6 = new Spaces(310,800,120,90);
-			s6.draw(g);
-			Spaces s7 = new Spaces(170,800,120,90);
-			s7.draw(g);
-			Spaces s8 = new Spaces(20,800,120,90);
-			s8.draw(g);
+			l.draw(g);
 		}
 
 }
