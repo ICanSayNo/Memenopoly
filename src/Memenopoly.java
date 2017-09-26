@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 import javax.swing.JFrame;
 
 public class Memenopoly {
@@ -10,6 +12,7 @@ public class Memenopoly {
 		gamePanel = new MemeGamePanel();
 		frame.addKeyListener(gamePanel);
 		setup();
+		gamePanel.setBackground( new Color(107, 106, 104) );
 	}
 	public static void main(String[] args) {
 		Memenopoly m = new Memenopoly();
