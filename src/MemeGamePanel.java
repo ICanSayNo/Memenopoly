@@ -14,7 +14,9 @@ import javax.swing.Timer;
 
 public class MemeGamePanel extends JPanel implements ActionListener, KeyListener {
 	public static BufferedImage memenopolyImg;
-	Logo l=new Logo(380,380,250,250);
+	public static BufferedImage memenopolyImg_Go;
+	Image a=new Image(0,0,250,250);
+
 	ObjectManager o;
 	
 	
@@ -23,6 +25,12 @@ public class MemeGamePanel extends JPanel implements ActionListener, KeyListener
 		
 		try {
 			memenopolyImg = ImageIO.read(this.getClass().getResourceAsStream("L0g0.jpg"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			memenopolyImg_Go = ImageIO.read(this.getClass().getResourceAsStream("cerealGuy.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -55,7 +63,7 @@ public class MemeGamePanel extends JPanel implements ActionListener, KeyListener
 			
 	}
 		public void paintComponent(Graphics g){
-			l.draw(g);
+			a.draw(g);
 			o.draw(g);
 		}
 
