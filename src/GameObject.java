@@ -6,6 +6,8 @@ public class GameObject {
 		int y;
 		int width;
 		int height;
+		int imgx;
+		int imgy;
 		GameObject(int x, int y, int width, int height){
 			this.x=x;
 			this.y=y;

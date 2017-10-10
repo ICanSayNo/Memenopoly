@@ -11,10 +11,15 @@ import javax.swing.JLabel;
 public class Space extends GameObject{
 	static Color defaultColor = Color.WHITE;
 	Color spaceColor;
+	int imgx;
+	int imgy;
 	public BufferedImage image;
 	//JLabel label= new JLabel();
-	Space(int x, int y, int width, int height, String imageName, String label){
+	Space(int x, int y, int width, int height, int imgx, int imgy, String imageName, String label, Color color){
 		super(x, y, width, height);
+		this.imgx=imgx;
+		this.imgy=imgy;
+		this.spaceColor=color;
 		if(imageName!=null) {
 			try {
 				this.image = ImageIO.read(this.getClass().getResourceAsStream(imageName));
@@ -39,9 +44,9 @@ public class Space extends GameObject{
 		g.setColor(Color.black);
 		g.drawRect(x, y, width, height);
 		g.setColor(spaceColor);
-		g.fillRect(x+1, y+1, width-2, height-2);
+		g.fillRect(x+1, y+1, width-1, height-1);
 		if(image!=null) {
-			g.drawImage(image, x+1, y+1, null);
+			g.drawImage(image, imgx+1, imgy+1, null);
 		}
 		//if(label!=null) {
 		  	
