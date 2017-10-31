@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class ObjectManager {
 	ArrayList<GameObject> objects;
 	ArrayList<Space> spaces=new ArrayList<Space>() ;
+	static ArrayList<Dice> dice=new ArrayList<Dice>() ;
 	ObjectManager(){
 		initSpaces();
 	}
@@ -13,6 +14,9 @@ public class ObjectManager {
 		for (Space s : spaces) {
 			s.draw(g);
 		}
+		for (Dice d : dice) {
+			d.draw(g);
+	}
 	}
 	
 public void initSpaces() {
@@ -31,10 +35,10 @@ public void initSpaces() {
 	spaces.add(new Space(300,10,100,150, 300, 10, "elmo.jpeg", null, Color.RED));
 	spaces.add(new Space(400,10,100,150, 400, 70, "block3.jpeg", null, null));
 	spaces.add(new Space(500,10,100,150, 500, 10, "poohbear.png", null, Color.red));
-	spaces.add(new Space(600,10,100,150, 0, 0, null, null, Color.YELLOW));
+	spaces.add(new Space(600,10,100,150, 600, 10, "WillyWonka.jpg", null, Color.YELLOW));
 	spaces.add(new Space(700,10,100,150, 700, 70, "gordon.jpg", null, null));
-	spaces.add(new Space(800,10,100,150, 0, 0, null, null, Color.yellow));
-	spaces.add(new Space(900,10,100,150, 0, 0, null, null, Color.yellow));
+	spaces.add(new Space(800,10,100,150, 800, 10, "futurama.jpeg", null, Color.yellow));
+	spaces.add(new Space(900,10,100,150, 900, 10, "philosoraptor.jpeg", null, Color.yellow));
 	spaces.add(new Space(1000,10,150,150, 1000, 10, "fidgetSpinner.jpeg", null, null));
 	spaces.add(new Space(50,160,150,100, 50, 160, "barryBeeBenson.jpeg", null, Color.orange));
 	spaces.add(new Space(50,260,150,100, 50, 260, "shrek.jpg", null, Color.orange));
@@ -42,12 +46,15 @@ public void initSpaces() {
 	spaces.add(new Space(50,460,150,100, 50, 460, "sanic.png", null, Color.magenta));
 	spaces.add(new Space(50,560,150,100, 110, 560, "block2.jpeg", null, null));
 	spaces.add(new Space(50,660,150,100, 50, 660, "pingas.png", null, Color.magenta));
-	spaces.add(new Space(1000,160,150,100, 0, 0, null, null, Color.GREEN));
+	spaces.add(new Space(1000,160,150,100, 1060, 160, "YEE.jpeg", null, Color.GREEN));
 	spaces.add(new Space(1000,260,150,100, 1000, 260, "block4.jpeg", null, null));
-	spaces.add(new Space(1000,360,150,100, 0, 0, null, null, Color.GREEN));
+	spaces.add(new Space(1000,360,150,100, 1060, 360, "HeMan.jpeg", null, Color.GREEN));
 	spaces.add(new Space(1000,460,150,100, 1000, 460, "james.jpeg", null, null));
 	spaces.add(new Space(1000,560,150,100, 1060, 560, "ikeaCat.jpeg", null, Color.BLUE));
 	spaces.add(new Space(1000,660,150,100, 1060, 660, "grumpyCat.jpg", null, Color.blue));
+	dice.add(new Dice(1000,560,150,100, 1660, 660, "diec-1.gif"));
+	dice.add(new Dice(1000,660,150,100, 1560, 660, "diec-1.gif"));
+	dice.add(new Dice(1000,660,150,100, 1480, 760, "roll.png"));
 }
 }
 

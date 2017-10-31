@@ -12,6 +12,7 @@ public class Memenopoly {
 		gamePanel = new MemeGamePanel();
 		frame.addKeyListener(gamePanel);
 		setup();
+		frame.addMouseListener(gamePanel);
 		frame.setBackground( new Color(203, 233, 228) );
 	}
 	public static void main(String[] args) {
