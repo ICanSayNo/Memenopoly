@@ -3,7 +3,7 @@ import java.awt.Color;
 import javax.swing.JFrame;
 
 public class Memenopoly {
-	JFrame frame;
+	static JFrame frame;
 	final static int frameHeight=950;
 	final static int frameWidth=1800;
 	MemeGamePanel gamePanel;
@@ -24,5 +24,6 @@ public class Memenopoly {
 		frame.setVisible(true);
 		frame.setSize(frameWidth, frameHeight);
 		gamePanel.startGame();
+		
 	}
 }

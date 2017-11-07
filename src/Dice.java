@@ -2,18 +2,23 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 
 public class Dice extends GameObject{
 	int imgx;
 	int imgy;
-	public BufferedImage image;
+	int value;
+	public static BufferedImage image;
+	String imageName;
 	//JLabel label= new JLabel();
-	Dice(int x, int y, int width, int height, int imgx, int imgy, String imageName){
+	Dice(int x, int y, int width, int height, int imgx, int imgy, String imageName, int value){
 		super(x, y, width, height);
 		this.imgx=imgx;
 		this.imgy=imgy;
+		this.value=value;
+		this.imageName=imageName;
 		if(imageName!=null) {
 			try {
 				this.image = ImageIO.read(this.getClass().getResourceAsStream(imageName));
@@ -30,12 +35,25 @@ public class Dice extends GameObject{
 		//}
 		}
 static void roll() {
-	ObjectManager.dice.get(2);
+	ObjectManager.dice.get(1).value=new Random().nextInt(5);
+	System.out.println(ObjectManager.dice.get(1).value);
+	ObjectManager.dice.get(0).value=new Random().nextInt(5);
+	System.out.println(ObjectManager.dice.get(0).value);
+	ObjectManager.players.get(0).spaceValue=ObjectManager.players.get(0).spaceValue+ObjectManager.dice.get(0).value+ObjectManager.dice.get(1).value+2;
+	if (ObjectManager.players.get(0).spaceValue>32) {
+		ObjectManager.players.get(0).spaceValue=ObjectManager.players.get(0).spaceValue-32;
+	}
+
 }
 
 	void draw(Graphics g) {
 
-
+		try {
+			this.image = ImageIO.read(this.getClass().getResourceAsStream(imageName));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		if(image!=null) {
 			g.drawImage(image, imgx+1, imgy+1, null);
 		}

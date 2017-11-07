@@ -13,11 +13,13 @@ public class Space extends GameObject{
 	Color spaceColor;
 	int imgx;
 	int imgy;
+	int id;
 	public BufferedImage image;
 	//JLabel label= new JLabel();
-	Space(int x, int y, int width, int height, int imgx, int imgy, String imageName, String label, Color color){
+	Space(int x, int y, int width, int height, int imgx, int imgy, String imageName, String label, Color color, int id){
 		super(x, y, width, height);
 		this.imgx=imgx;
+		this.id=id;
 		this.imgy=imgy;
 		this.spaceColor=color;
 		if(imageName!=null) {
