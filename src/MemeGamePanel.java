@@ -67,7 +67,7 @@ public class MemeGamePanel extends JPanel implements ActionListener, KeyListener
 			setBackground( new Color(203, 233, 228) );
 			a.draw(g);
 			o.draw(g);
-			System.out.println("test paint");
+			//System.out.println("test paint");
 		}
 
 
@@ -114,8 +114,6 @@ public class MemeGamePanel extends JPanel implements ActionListener, KeyListener
 				}
 			}
 			repaint();
-			System.out.println(ObjectManager.dice.get(1).imageName);
-			System.out.println(ObjectManager.dice.get(0).imageName);
 			
 		}
 

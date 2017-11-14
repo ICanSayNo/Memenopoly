@@ -62,7 +62,7 @@ public void initSpaces() {
 	dice.add(new Dice(1000,560,150,100, 1660, 660, "diec-1.gif", 0));
 	dice.add(new Dice(1000,660,150,100, 1560, 660, "diec-1.gif", 0));
 	dice.add(new Dice(1000,660,150,100, 1480, 760, "roll.png", 0));
-	players.add(new Player(100,560,150,100, "troll.png", 0));
+	players.add(new Player(100,560,150,100, "troll.png", 0, false, 0));
 }
 }
 
