@@ -6,47 +6,49 @@ import java.util.Random;
 
 import javax.imageio.ImageIO;
 
-public class Dice extends GameObject{
+public class Dice extends GameObject {
 	int imgx;
 	int imgy;
 	int value;
 	public static BufferedImage image;
 	String imageName;
-	//JLabel label= new JLabel();
-	Dice(int x, int y, int width, int height, int imgx, int imgy, String imageName, int value){
+
+	// JLabel label= new JLabel();
+	Dice(int x, int y, int width, int height, int imgx, int imgy, String imageName, int value) {
 		super(x, y, width, height);
-		this.imgx=imgx;
-		this.imgy=imgy;
-		this.value=value;
-		this.imageName=imageName;
-		if(imageName!=null) {
+		this.imgx = imgx;
+		this.imgy = imgy;
+		this.value = value;
+		this.imageName = imageName;
+		if (imageName != null) {
 			try {
 				this.image = ImageIO.read(this.getClass().getResourceAsStream(imageName));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-		}
-		//if(label!=null) {
-		//	Font font = new Font("Impact", Font.BOLD, 15);
-		//	this.label.setText(label);
-		//	this.label.setFont(font);
-		//}
-		}
-static void roll() {
-	ObjectManager.dice.get(1).value=new Random().nextInt(6);
-	System.out.println("Dice 1 Value: "+(ObjectManager.dice.get(1).value+1));
-	ObjectManager.dice.get(0).value=new Random().nextInt(6);
-	System.out.println("Dice 2 Value: "+(ObjectManager.dice.get(0).value+1));
-	ObjectManager.players.get(0).spaceValue=ObjectManager.players.get(0).spaceValue+ObjectManager.dice.get(0).value+ObjectManager.dice.get(1).value+2;
-	System.out.println("Total: "+(ObjectManager.dice.get(0).value+ObjectManager.dice.get(1).value+2));
-		if (ObjectManager.players.get(0).spaceValue>31) {
-			ObjectManager.players.get(0).spaceValue=ObjectManager.players.get(0).spaceValue-32;
-		}
-	
 
-}
+		}
+		// if(label!=null) {
+		// Font font = new Font("Impact", Font.BOLD, 15);
+		// this.label.setText(label);
+		// this.label.setFont(font);
+		// }
+	}
+
+	static void roll() {
+		ObjectManager.dice.get(1).value = new Random().nextInt(6);
+		System.out.println("Dice 1 Value: " + (ObjectManager.dice.get(1).value + 1));
+		ObjectManager.dice.get(0).value = new Random().nextInt(6);
+		System.out.println("Dice 2 Value: " + (ObjectManager.dice.get(0).value + 1));
+		ObjectManager.players.get(0).spaceValue = ObjectManager.players.get(0).spaceValue
+				+ ObjectManager.dice.get(0).value + ObjectManager.dice.get(1).value + 2;
+		System.out.println("Total: " + (ObjectManager.dice.get(0).value + ObjectManager.dice.get(1).value + 2));
+		if (ObjectManager.players.get(0).spaceValue > 31) {
+			ObjectManager.players.get(0).spaceValue = ObjectManager.players.get(0).spaceValue - 32;
+		}
+
+	}
 
 	void draw(Graphics g) {
 
@@ -56,13 +58,11 @@ static void roll() {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(image!=null) {
-			g.drawImage(image, imgx+1, imgy+1, null);
+		if (image != null) {
+			g.drawImage(image, imgx + 1, imgy + 1, null);
 		}
-		//if(label!=null) {
-		  	
-		//}
+		// if(label!=null) {
+
+		// }
 	}
 }
-
-

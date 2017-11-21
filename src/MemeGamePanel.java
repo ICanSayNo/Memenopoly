@@ -17,13 +17,13 @@ import javax.swing.Timer;
 public class MemeGamePanel extends JPanel implements ActionListener, KeyListener, MouseListener {
 	public static BufferedImage memenopolyImg;
 	public static BufferedImage memenopolyImg_Go;
-	Image a=new Image(0,0,250,250);
+	Image a = new Image(0, 0, 250, 250);
 
 	ObjectManager o;
-	
+
 	public MemeGamePanel() {
 		o = new ObjectManager();
-	
+
 		try {
 			memenopolyImg = ImageIO.read(this.getClass().getResourceAsStream("L0g0.jpg"));
 		} catch (IOException e) {
@@ -37,112 +37,110 @@ public class MemeGamePanel extends JPanel implements ActionListener, KeyListener
 			e.printStackTrace();
 		}
 	}
-	
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 
 	}
+
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
+
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
 
 	}
+
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-		public void startGame(){
-			
+	public void startGame() {
+
 	}
-		public void paintComponent(Graphics g){
-			setBackground( new Color(203, 233, 228) );
-			a.draw(g);
-			o.draw(g);
-			//System.out.println("test paint");
-		}
 
+	public void paintComponent(Graphics g) {
+		setBackground(new Color(203, 233, 228));
+		a.draw(g);
+		o.draw(g);
+		// System.out.println("test paint");
+	}
 
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			// TODO Auto-generated method stub
-			if(e.getX()>1480&&e.getY()>760) {
-				Dice.roll();
-				if(ObjectManager.dice.get(1).value==0) {
-					ObjectManager.dice.get(1).imageName="diec-1.gif";
-				}
-				if(ObjectManager.dice.get(1).value==1) {
-					ObjectManager.dice.get(1).imageName="diec-2.gif";
-				}
-				if(ObjectManager.dice.get(1).value==2) {
-					ObjectManager.dice.get(1).imageName="diec-3.gif";
-				}
-				if(ObjectManager.dice.get(1).value==3) {
-					ObjectManager.dice.get(1).imageName="diec-4.gif";
-				}
-				if(ObjectManager.dice.get(1).value==4) {
-					ObjectManager.dice.get(1).imageName="diec-5.gif";
-				}
-				if(ObjectManager.dice.get(1).value==5) {
-					ObjectManager.dice.get(1).imageName="diec-6.gif";
-				}
-				if(ObjectManager.dice.get(0).value==0) {
-					ObjectManager.dice.get(0).imageName="diec-1.gif";
-				}
-				if(ObjectManager.dice.get(0).value==1) {
-					ObjectManager.dice.get(0).imageName="diec-2.gif";
-				}
-				if(ObjectManager.dice.get(0).value==2) {
-					ObjectManager.dice.get(0).imageName="diec-3.gif";
-				}
-				if(ObjectManager.dice.get(0).value==3) {
-					ObjectManager.dice.get(0).imageName="diec-4.gif";
-				}
-				if(ObjectManager.dice.get(0).value==4) {
-					ObjectManager.dice.get(0).imageName="diec-5.gif";
-				}
-				if(ObjectManager.dice.get(0).value==5) {
-					ObjectManager.dice.get(0).imageName="diec-6.gif";
-				}
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		if (e.getX() > 1480 && e.getY() > 760) {
+			Dice.roll();
+			if (ObjectManager.dice.get(1).value == 0) {
+				ObjectManager.dice.get(1).imageName = "diec-1.gif";
 			}
-			repaint();
-			
+			if (ObjectManager.dice.get(1).value == 1) {
+				ObjectManager.dice.get(1).imageName = "diec-2.gif";
+			}
+			if (ObjectManager.dice.get(1).value == 2) {
+				ObjectManager.dice.get(1).imageName = "diec-3.gif";
+			}
+			if (ObjectManager.dice.get(1).value == 3) {
+				ObjectManager.dice.get(1).imageName = "diec-4.gif";
+			}
+			if (ObjectManager.dice.get(1).value == 4) {
+				ObjectManager.dice.get(1).imageName = "diec-5.gif";
+			}
+			if (ObjectManager.dice.get(1).value == 5) {
+				ObjectManager.dice.get(1).imageName = "diec-6.gif";
+			}
+			if (ObjectManager.dice.get(0).value == 0) {
+				ObjectManager.dice.get(0).imageName = "diec-1.gif";
+			}
+			if (ObjectManager.dice.get(0).value == 1) {
+				ObjectManager.dice.get(0).imageName = "diec-2.gif";
+			}
+			if (ObjectManager.dice.get(0).value == 2) {
+				ObjectManager.dice.get(0).imageName = "diec-3.gif";
+			}
+			if (ObjectManager.dice.get(0).value == 3) {
+				ObjectManager.dice.get(0).imageName = "diec-4.gif";
+			}
+			if (ObjectManager.dice.get(0).value == 4) {
+				ObjectManager.dice.get(0).imageName = "diec-5.gif";
+			}
+			if (ObjectManager.dice.get(0).value == 5) {
+				ObjectManager.dice.get(0).imageName = "diec-6.gif";
+			}
 		}
+		repaint();
 
+	}
 
-		@Override
-		public void mousePressed(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
 
+	}
 
-		@Override
-		public void mouseReleased(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
 
+	}
 
-		@Override
-		public void mouseEntered(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
 
+	}
 
-		@Override
-		public void mouseExited(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+
+	}
 
 }
