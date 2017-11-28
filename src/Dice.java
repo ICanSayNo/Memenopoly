@@ -37,18 +37,11 @@ public class Dice extends GameObject {
 	}
 
 	static void roll() {
-		ObjectManager.dice.get(1).value = new Random().nextInt(6);
-		System.out.println("Dice 1 Value: " + (ObjectManager.dice.get(1).value + 1));
-		ObjectManager.dice.get(0).value = new Random().nextInt(6);
-		System.out.println("Dice 2 Value: " + (ObjectManager.dice.get(0).value + 1));
-		ObjectManager.players.get(0).spaceValue = ObjectManager.players.get(0).spaceValue
-				+ ObjectManager.dice.get(0).value + ObjectManager.dice.get(1).value + 2;
-		System.out.println("Total: " + (ObjectManager.dice.get(0).value + ObjectManager.dice.get(1).value + 2));
-		if (ObjectManager.players.get(0).spaceValue > 31) {
-			ObjectManager.players.get(0).spaceValue = ObjectManager.players.get(0).spaceValue - 32;
+			ObjectManager.dice.get(1).value = new Random().nextInt(6);
+			System.out.println("Dice 1 Value: " + (ObjectManager.dice.get(1).value + 1));
+			ObjectManager.dice.get(0).value = new Random().nextInt(6);
+			System.out.println("Dice 2 Value: " + (ObjectManager.dice.get(0).value + 1));
 		}
-
-	}
 
 	void draw(Graphics g) {
 
