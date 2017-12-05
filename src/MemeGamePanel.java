@@ -17,7 +17,7 @@ import javax.swing.Timer;
 public class MemeGamePanel extends JPanel implements ActionListener, KeyListener, MouseListener {
 	public static BufferedImage memenopolyImg;
 	public static BufferedImage memenopolyImg_Go;
-	int turn=0;
+	static int turn=0;
 	Image a = new Image(0, 0, 250, 250);
 
 	ObjectManager o;
@@ -47,14 +47,36 @@ public class MemeGamePanel extends JPanel implements ActionListener, KeyListener
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-
+		// TODO Auto-generated method stub'
+		
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-
+		if (e.getKeyCode() == KeyEvent.VK_Y) {
+            System.out.println("Player Input: Yes");
+            System.out.println("Turn: "+turn);
+            System.out.println("Player Owner: "+ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).owner);
+            if(turn==1) {
+            		if(ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).owner==0) {
+            			ObjectManager.player1.get(0).muneez-=(60+(ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id*20));
+            			ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).owner=1;
+            			ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).spaceColor=ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).spaceColor.darker().darker();
+            		}
+            }
+            if(turn==2) {
+        		if(ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).owner==0) {
+        			ObjectManager.player2.get(0).muneez-=(60+(ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id*20));
+        			ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).owner=2;
+        			ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).spaceColor=ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).spaceColor.brighter().brighter();
+        		}
+        }
+        }
+        if (e.getKeyCode() == KeyEvent.VK_N) {
+            System.out.println("Player Input: No");
+        }
+        repaint();
 	}
 
 	@Override

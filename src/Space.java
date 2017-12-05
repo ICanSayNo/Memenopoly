@@ -14,16 +14,18 @@ public class Space extends GameObject {
 	int imgx;
 	int imgy;
 	int id;
+	int owner;
 	public BufferedImage image;
 
 	// JLabel label= new JLabel();
 	Space(int x, int y, int width, int height, int imgx, int imgy, String imageName, String label, Color color,
-			int id) {
+			int id, int owner) {
 		super(x, y, width, height);
 		this.imgx = imgx;
 		this.id = id;
 		this.imgy = imgy;
 		this.spaceColor = color;
+		this.owner = owner;
 		if (imageName != null) {
 			try {
 				this.image = ImageIO.read(this.getClass().getResourceAsStream(imageName));

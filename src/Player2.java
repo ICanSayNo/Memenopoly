@@ -53,7 +53,9 @@ public class Player2 extends GameObject {
 			g.drawString("3 days jail time...", 1400 ,220);
 		}
 		if (ObjectManager.dice.get(0).value == ObjectManager.dice.get(1).value) {
+			if(MemeGamePanel.turn==1) {
 			ObjectManager.player2.get(0).inJail = false;
+			}
 		}
 		if (ObjectManager.player2.get(0).inJail == true) {
 			ObjectManager.player2.get(0).spaceValue = ObjectManager.spaces.get(9).id;
@@ -61,7 +63,9 @@ public class Player2 extends GameObject {
 		}
 
 		if (ObjectManager.player2.get(0).RollsLeftUntilOutOfJail > 0) {
-			ObjectManager.player2.get(0).RollsLeftUntilOutOfJail -= 1;
+			if(MemeGamePanel.turn==2) {
+				ObjectManager.player2.get(0).RollsLeftUntilOutOfJail -= 1;
+			}
 		} else if (ObjectManager.player2.get(0).RollsLeftUntilOutOfJail == 0) {
 			ObjectManager.player2.get(0).inJail = false;
 		}
@@ -168,10 +172,10 @@ public class Player2 extends GameObject {
 		}
 		if (image != null) {
 			g.drawImage(image, x, y, null);
-			System.out.println("In jail: " + ObjectManager.player2.get(0).inJail);
-			System.out.println("Space p1 is on: " + ObjectManager.player2.get(0).spaceValue);
-			System.out.println("Turns til out of Jail: " + ObjectManager.player2.get(0).RollsLeftUntilOutOfJail);
-			System.out.println("Muneez: "+muneez);
+			System.out.println("In jail(p2): " + ObjectManager.player2.get(0).inJail);
+			System.out.println("Space is on(p2): " + ObjectManager.player2.get(0).spaceValue);
+			System.out.println("Turns til out of Jail(p2): " + ObjectManager.player2.get(0).RollsLeftUntilOutOfJail);
+			System.out.println("Muneez(p2): "+muneez);
 			System.out.println();
 		}
 		// if(label!=null) {
