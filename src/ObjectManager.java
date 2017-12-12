@@ -16,6 +16,23 @@ public class ObjectManager {
 	public void draw(Graphics g) {
 		for (Space s : spaces) {
 			s.draw(g);
+			for (int i = 0; i < 32; i++) {
+				if(spaces.get(i).owner!=0) {
+				if(spaces.get(i).id==1||spaces.get(i).id==2||spaces.get(i).id==5||spaces.get(i).id==7||spaces.get(i).id==8) {
+				g.drawString(("P"+spaces.get(i).owner), (spaces.get(i).x+50), (spaces.get(i).y+40));
+					}
+				else if(spaces.get(i).id==10||spaces.get(i).id==12||spaces.get(i).id==14||spaces.get(i).id==15) {
+					g.drawString(("P"+spaces.get(i).owner), (spaces.get(i).x+115), (spaces.get(i).y+50));
+						}
+				else if(spaces.get(i).id==17||spaces.get(i).id==18||spaces.get(i).id==20||spaces.get(i).id==21||spaces.get(i).id==23||spaces.get(i).id==24) {
+					g.drawString(("P"+spaces.get(i).owner), (spaces.get(i).x+50), (spaces.get(i).y+115));
+						}
+				else if(spaces.get(i).id==26||spaces.get(i).id==28||spaces.get(i).id==30||spaces.get(i).id==31) {
+					g.drawString(("P"+spaces.get(i).owner), (spaces.get(i).x+25), (spaces.get(i).y+40));
+				}
+			}
+			}
+			
 		}
 		for (Dice d : dice) {
 

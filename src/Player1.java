@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.TextField;
 import java.awt.event.ActionListener;
@@ -45,6 +46,8 @@ public class Player1 extends GameObject {
 	}
 
 	void draw(Graphics g) {
+		g.setColor(Color.MAGENTA);
+		g.drawString("Player 1 Feed:", 1400 ,120);
 		if (ObjectManager.player1.get(0).spaceValue == ObjectManager.spaces.get(25).id) {
 			ObjectManager.player1.get(0).inJail = true;
 			ObjectManager.player1.get(0).spaceValue = ObjectManager.spaces.get(9).id;
@@ -77,27 +80,27 @@ public class Player1 extends GameObject {
 				|| ObjectManager.player1.get(0).spaceValue == ObjectManager.spaces.get(27).id) {
 			int chance = new Random().nextInt(25);
 			if (chance == 0||chance == 1||chance == 2||chance == 3||chance == 4||chance == 5||chance == 6||chance == 7||chance == 8||chance == 9) {
-				g.drawString("You bought a lottery ticket for 5 Dollars.", 1400 ,100);
-				g.drawString("However, you lost...", 1400 ,140);
+				g.drawString("You bought a lottery ticket for 5 Dollars.", 1400 ,140);
+				g.drawString("However, you lost...", 1400 ,160);
 				ObjectManager.player1.get(0).muneez-=5;
 			}
 			else if (chance == 10) {
-				g.drawString("You bought a lottery ticket for 5 Dollars.", 1400 ,100);
-				g.drawString("AND YOU WON 10,000 DOLLARS!!!", 1400 ,140);
+				g.drawString("You bought a lottery ticket for 5 Dollars.", 1400 ,140);
+				g.drawString("AND YOU WON 10,000 DOLLARS!!!", 1400 ,160);
 				g.drawString("Minus the 5 Dollars you spent...", 1400 ,180);
 				ObjectManager.player1.get(0).muneez+=9995;
 			}
 			else if (chance == 11||chance == 12||chance == 13||chance == 14||chance == 15||chance == 16) {
-				g.drawString("You have been sent to jail.", 1400 ,100);
-				g.drawString("Not enough memes...", 1400 ,140);
+				g.drawString("You have been sent to jail.", 1400 ,140);
+				g.drawString("Not enough memes...", 1400 ,160);
 				ObjectManager.player1.get(0).inJail = true;
 				ObjectManager.player1.get(0).spaceValue = ObjectManager.spaces.get(9).id;
 				ObjectManager.player1.get(0).RollsLeftUntilOutOfJail = 3;
 				ObjectManager.player1.get(0).x = ObjectManager.spaces.get(9).x+30;
 			}
 			else if (chance == 17||chance == 18||chance == 19||chance == 20) {
-				g.drawString("Grumpy Cat summons you.", 1400 ,100);
-				g.drawString("Advance to "+"''Grumpy Cat''", 1400 ,140);
+				g.drawString("Grumpy Cat summons you.", 1400 ,140);
+				g.drawString("Advance to "+"''Grumpy Cat''", 1400 ,160);
 				g.drawString("If unowned, you may buy the space Grumpy Cat resides on.", 1400 ,180);
 				ObjectManager.player1.get(0).spaceValue = ObjectManager.spaces.get(31).id;
 			}
@@ -140,25 +143,45 @@ public class Player1 extends GameObject {
 
 			}
 		}
-		if (ObjectManager.player1.get(0).spaceValue == ObjectManager.spaces.get(1).id) {
-			if (ObjectManager.spaces.get(1).owner == 0) {
+			if (ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).owner == 0) {
+				if (ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 1
+						|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 2
+						|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 5
+						|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 7
+						|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 8
+						|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 10
+						|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 12
+						|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 14
+						|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 15
+						|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 17
+						|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 18
+						|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 20
+						|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 21
+						|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 23
+						|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 24
+						|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 26
+						|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 28
+						|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 30
+						|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 31) {
+				g.setColor(Color.BLUE);
 				g.drawString("This property is unowned", 1400 ,140);
-				g.drawString("It costs 80 Dollars, and pays 40 when landed on.", 1400 ,180);
-				g.drawString("Will you buy this property?", 1400 ,220);
-				g.drawString("Type ''Y'' if yes, type ''N'' if no(ends turn).", 1400 ,260);
-				g.drawString("Caps doesn't matter", 1400 ,300);
+				g.drawString("It costs "+(60 + (ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id * 20)) +" Dollars, and pays "+(60 + (ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id * 20)/2)+" when landed on.", 1400 ,160);
+				g.drawString("Will you buy this property?", 1400 ,180);
+				g.drawString("Type ''Y'' if yes, type ''N'' if no(ends turn).", 1400 ,200);
+				g.drawString("Caps doesn't matter", 1400 ,220);
+				}
 				
 			}
-		}
+		
 		if (ObjectManager.player1.get(0).spaceValue == ObjectManager.spaces.get(3).id) {
-			g.drawString("You have landed on ''Taxes''", 1400 ,100);
+			g.drawString("You have landed on ''Taxes''", 1400 ,140);
 			int taxChance = new Random().nextInt(25);
 			if(taxChance==1) {
-				g.drawString("You must pay $200 to our glorious president Trump", 1400 ,140);
+				g.drawString("You must pay $200 to our glorious president Trump", 1400 ,160);
 				g.drawString("for a great wall.", 1400 ,180);
 			}
 			else {
-				g.drawString("You must pay $200 to the government", 1400 ,140);
+				g.drawString("You must pay $200 to the government", 1400 ,160);
 			}
 			ObjectManager.player1.get(0).muneez-=200;
 		}
