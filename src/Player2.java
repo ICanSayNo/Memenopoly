@@ -44,6 +44,7 @@ public class Player2 extends GameObject {
 	}
 
 	void draw(Graphics g) {
+		
 		g.setColor(Color.MAGENTA);
 		g.drawString("Player 2 Feed:", 1400, 280);
 		if (ObjectManager.player2.get(0).spaceValue == ObjectManager.spaces.get(25).id) {
@@ -66,12 +67,13 @@ public class Player2 extends GameObject {
 		}
 
 		if (ObjectManager.player2.get(0).RollsLeftUntilOutOfJail > 0) {
-			if(MemeGamePanel.turn==2) {
+			if(MemeGamePanel.turn==1) {
 				ObjectManager.player2.get(0).RollsLeftUntilOutOfJail -= 1;
 			}
 		} else if (ObjectManager.player2.get(0).RollsLeftUntilOutOfJail == 0) {
 			ObjectManager.player2.get(0).inJail = false;
 		}
+		if (MemeGamePanel.turn == 1) {
 		if (ObjectManager.player2.get(0).spaceValue == ObjectManager.spaces.get(6).id
 				|| ObjectManager.player2.get(0).spaceValue == ObjectManager.spaces.get(11).id
 				|| ObjectManager.player2.get(0).spaceValue == ObjectManager.spaces.get(19).id
@@ -141,6 +143,7 @@ public class Player2 extends GameObject {
 
 			}
 		}
+		
 		if (ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).owner == 0) {
 			if (ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id == 1
 					|| ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id == 2
@@ -168,7 +171,34 @@ public class Player2 extends GameObject {
 			g.drawString("Type ''Y'' if yes, type ''N'' if no(ends turn).", 1400 ,360);
 			g.drawString("Caps doesn't matter", 1400 ,380);
 			}
-			
+		}
+			if (ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).owner == 1) {
+				if (ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id == 1
+						|| ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id == 2
+						|| ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id == 5
+						|| ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id == 7
+						|| ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id == 8
+						|| ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id == 10
+						|| ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id == 12
+						|| ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id == 14
+						|| ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id == 15
+						|| ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id == 17
+						|| ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id == 18
+						|| ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id == 20
+						|| ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id == 21
+						|| ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id == 23
+						|| ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id == 24
+						|| ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id == 26
+						|| ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id == 28
+						|| ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id == 30
+						|| ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id == 31) {
+				g.setColor(Color.BLUE);
+				g.drawString("This property is owned by another player", 1400 ,300);
+				g.drawString("You must pay "+(60 + (ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id * 20)/2), 1400 ,340);
+				ObjectManager.player2.get(0).muneez -= (60 + (ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id * 20)/2);
+				ObjectManager.player1.get(0).muneez += (60 + (ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id * 20)/2);
+				}
+			}
 		}
 		if (ObjectManager.player2.get(0).spaceValue == ObjectManager.spaces.get(3).id) {
 			g.drawString("You have landed on ''Taxes''", 1400 ,300);
@@ -202,6 +232,7 @@ public class Player2 extends GameObject {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		if (image != null) {
 			g.drawImage(image, x, y, null);
 			System.out.println("In jail(p2): " + ObjectManager.player2.get(0).inJail);
