@@ -194,9 +194,9 @@ public class Player2 extends GameObject {
 						|| ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id == 31) {
 				g.setColor(Color.BLUE);
 				g.drawString("This property is owned by another player", 1400 ,300);
-				g.drawString("You must pay "+(60 + (ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id * 20)/2), 1400 ,340);
-				ObjectManager.player2.get(0).muneez -= (60 + (ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id * 20)/2);
-				ObjectManager.player1.get(0).muneez += (60 + (ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id * 20)/2);
+				g.drawString("You must pay "+(60 + (ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id * 20)/2*ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).upgrade), 1400 ,340);
+				ObjectManager.player2.get(0).muneez -= (60 + (ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id * 20)/2*ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).upgrade);
+				ObjectManager.player1.get(0).muneez += (60 + (ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id * 20)/2*ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).upgrade);
 				}
 			}
 		}

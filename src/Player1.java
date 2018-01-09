@@ -196,9 +196,34 @@ public class Player1 extends GameObject {
 							|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 31) {
 					g.setColor(Color.BLUE);
 					g.drawString("This property is owned by another player", 1400 ,140);
-					g.drawString("You must pay "+(60 + (ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id * 20)/2), 1400 ,160);
-					ObjectManager.player1.get(0).muneez -= (60 + (ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id * 20)/2);
-					ObjectManager.player2.get(0).muneez += (60 + (ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id * 20)/2);
+					g.drawString("You must pay "+(60 + (ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id * 20)/2*ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).upgrade), 1400 ,160);
+					ObjectManager.player1.get(0).muneez -= (60 + (ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id * 20)/2*ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).upgrade);
+					ObjectManager.player2.get(0).muneez += (60 + (ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id * 20)/2*ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).upgrade);
+					}
+				}
+				if (ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).owner == 1) {
+					if (ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 1
+							|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 2
+							|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 5
+							|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 7
+							|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 8
+							|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 10
+							|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 12
+							|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 14
+							|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 15
+							|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 17
+							|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 18
+							|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 20
+							|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 21
+							|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 23
+							|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 24
+							|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 26
+							|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 28
+							|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 30
+							|| ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id == 31) {
+					g.setColor(Color.BLUE);
+					g.drawString("This property is owned by you", 1400 ,140);
+					g.drawString("Would you like to upgrade this property for "+((ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id * 20)/2), 1400 ,160);
 					}
 				}
 		}

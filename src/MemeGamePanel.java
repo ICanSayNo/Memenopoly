@@ -84,6 +84,11 @@ public class MemeGamePanel extends JPanel implements ActionListener, KeyListener
 								+ (ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id * 20));
 						ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).owner = 1;
 					}
+					else if (ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).owner == 1) {
+						ObjectManager.player1.get(0).muneez -= ((ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).id * 20/2));
+						ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).upgrade+= 1;
+					}
+					
 				}
 			}
 			if (turn == 1) {
@@ -112,9 +117,13 @@ public class MemeGamePanel extends JPanel implements ActionListener, KeyListener
 								+ (ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id * 20));
 						ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).owner = 2;
 					}
-
+					else if (ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).owner == 2) {
+						ObjectManager.player2.get(0).muneez -= ((ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).id * 20/2));
+						ObjectManager.spaces.get(ObjectManager.player2.get(0).spaceValue).upgrade+= 1;
+					}
 				}
 			}
+			
 		}
 		if (e.getKeyCode() == KeyEvent.VK_N) {
 			System.out.println("Player Input: No");
