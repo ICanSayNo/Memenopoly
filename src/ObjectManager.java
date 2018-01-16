@@ -10,7 +10,12 @@ public class ObjectManager {
 	static ArrayList<Dice> dice = new ArrayList<Dice>();
 	int turn=0;
 	ObjectManager() {
+		player1 = new ArrayList<Player1>();
+		player2 = new ArrayList<Player2>();
+		dice = new ArrayList<Dice>();
+		spaces = new ArrayList<Space>();
 		initSpaces();
+		
 	}
 
 	public void draw(Graphics g) {
@@ -31,12 +36,7 @@ public class ObjectManager {
 				else if(spaces.get(i).id==26||spaces.get(i).id==28||spaces.get(i).id==30||spaces.get(i).id==31) {
 					g.drawString(("P"+spaces.get(i).owner+"  lvl"+spaces.get(i).upgrade), (spaces.get(i).x+5), (spaces.get(i).y+40));
 				}
-				if(ObjectManager.player1.get(0).muneez<=0) {
-					
-				}
-				else if(ObjectManager.player2.get(0).muneez<=0) {
-					
-				}
+				
 			}
 			}
 			
@@ -53,6 +53,23 @@ public class ObjectManager {
 
 			p.draw(g);
 		}
+			if(ObjectManager.player1.get(0).muneez<=0) {
+			System.out.println("Sum stuf is happenin");
+				g.setColor(Color.gray);
+				g.fillRect(0, 0, 1800, 950);
+				g.setColor(Color.BLACK);
+				g.drawString("PLAYER 1 HAS LOST!!!! OH NO!", 800, 425);
+				g.drawString("Press R to Restart", 800, 440);
+			}
+			
+			if(ObjectManager.player2.get(0).muneez<=0) {
+				System.out.println("Sum stuf is happenin");
+					g.setColor(Color.gray);
+					g.fillRect(0, 0, 1800, 950);
+					g.setColor(Color.BLACK);
+					g.drawString("PLAYER 2 HAS LOST!!!! OH NO!", 800, 425);
+					g.drawString("Press R to Restart", 800, 440);
+	}
 	}
 
 	public void initSpaces() {

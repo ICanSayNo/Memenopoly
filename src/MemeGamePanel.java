@@ -128,6 +128,10 @@ public class MemeGamePanel extends JPanel implements ActionListener, KeyListener
 		if (e.getKeyCode() == KeyEvent.VK_N) {
 			System.out.println("Player Input: No");
 		}
+		if (e.getKeyCode() == KeyEvent.VK_R) {
+			System.out.println("Player Input: Restarting");
+			o=new ObjectManager();
+		}
 		repaint();
 	}
 

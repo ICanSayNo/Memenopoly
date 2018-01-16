@@ -6,22 +6,22 @@ public class Memenopoly {
 	static JFrame frame;
 	final static int frameHeight = 950;
 	final static int frameWidth = 1800;
-	MemeGamePanel gamePanel;
+	static MemeGamePanel gamePanel;
 
 	public Memenopoly() {
+			}
+
+	public static void main(String[] args) {
 		frame = new JFrame();
-		gamePanel = new MemeGamePanel();
-		frame.addKeyListener(gamePanel);
 		setup();
 		frame.addMouseListener(gamePanel);
 		frame.setBackground(new Color(203, 233, 228));
+
 	}
 
-	public static void main(String[] args) {
-		Memenopoly m = new Memenopoly();
-	}
-
-	void setup() {
+	static void setup() {
+		gamePanel = new MemeGamePanel();
+		frame.addKeyListener(gamePanel);
 		frame.add(gamePanel);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
