@@ -158,7 +158,6 @@ public class MemeGamePanel extends JPanel implements ActionListener, KeyListener
 		// TODO Auto-generated method stub
 		if (e.getX() > 1480 && e.getY() > 760) {
 			Dice.roll();
-			ObjectManager.dice.get(1).value=ObjectManager.dice.get(0).value;
 			if (ObjectManager.dice.get(1).value == 0) {
 				ObjectManager.dice.get(1).imageName = "diec-1.gif";
 			}
