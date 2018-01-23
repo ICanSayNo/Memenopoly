@@ -9,6 +9,7 @@ public class ObjectManager {
 	static ArrayList<Player2> player2 = new ArrayList<Player2>();
 	static ArrayList<Dice> dice = new ArrayList<Dice>();
 	int turn=0;
+		
 	ObjectManager() {
 		player1 = new ArrayList<Player1>();
 		player2 = new ArrayList<Player2>();
@@ -19,6 +20,7 @@ public class ObjectManager {
 	}
 
 	public void draw(Graphics g) {
+		
 		for (Space s : spaces) {
 			s.draw(g);
 			for (int i = 0; i < 32; i++) {
@@ -70,6 +72,19 @@ public class ObjectManager {
 					g.drawString("PLAYER 2 HAS LOST!!!! OH NO!", 800, 425);
 					g.drawString("Press R to Restart", 800, 440);
 	}
+			if(ObjectManager.dice.get(0).value==10) {
+				System.out.println("Sum stuf is happenin");
+					g.setColor(new Color(203, 233, 228));
+					g.fillRect(0, 0, 1800, 950);
+					g.setColor(Color.BLACK);
+					g.drawImage(MemeGamePanel.memenopolyImg, 650, 200, null);
+					g.drawString("WELCOME TO MEMEOPOLY!", 800, 425);
+					g.drawString("Press R to Start", 800, 440);
+					g.drawString("Roll Dice using the ''Roll Dice'' Button", 800, 580);
+					g.drawString("Follow instructions in player feed to buy", 800, 600);
+					g.drawString("and use properties.", 800, 620);
+					g.drawString("Force your opponent to go bankrupt to win!", 800, 640);
+	}
 	}
 
 	public void initSpaces() {
@@ -106,10 +121,12 @@ public class ObjectManager {
 		spaces.add(new Space(1000, 560, 150, 100, 1060, 560, "ikeaCat.jpeg", null, Color.BLUE, 30, 0, 1));
 		spaces.add(new Space(1000, 660, 150, 100, 1060, 660, "grumpyCat.jpg", null, Color.blue, 31, 0, 1));
 
-		dice.add(new Dice(1000, 560, 150, 100, 1660, 660, "diec-1.gif", 0));
+		dice.add(new Dice(1000, 560, 150, 100, 1660, 660, "diec-1.gif", 10));
 		dice.add(new Dice(1000, 660, 150, 100, 1560, 660, "diec-1.gif", 0));
 		dice.add(new Dice(1000, 660, 150, 100, 1480, 760, "roll.png", 0));
 		player1.add(new Player1(100, 560, 150, 100, "troll.png", 0, false, 2000, 0));
+		player1.add(new Player1(1190, 780, 150, 100, "troll.png", 0, false, 0, 0));
 		player2.add(new Player2(100, 560, 150, 100, "derp.png", 0, false, 2000, 0));
+		player2.add(new Player2(1190, 850, 150, 100, "derp.png", 0, false, 2000, 0));
 	}
 }

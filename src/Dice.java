@@ -44,7 +44,12 @@ public class Dice extends GameObject {
 		}
 
 	void draw(Graphics g) {
-
+		if(MemeGamePanel.turn==0) {
+		g.drawString("Who Rolls Next: Player "+ (MemeGamePanel.turn+2), 1250 ,600);
+		}
+		if(MemeGamePanel.turn==1) {
+			g.drawString("Who Rolls Next: Player "+ (MemeGamePanel.turn), 1250 ,600);
+			}
 		try {
 			this.image = ImageIO.read(this.getClass().getResourceAsStream(imageName));
 		} catch (IOException e) {

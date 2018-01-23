@@ -46,15 +46,15 @@ public class Player1 extends GameObject {
 	}
 
 	void draw(Graphics g) {
-		
-		g.setColor(Color.MAGENTA);
+			
+		g.setColor(Color.BLUE);
 		g.drawString("Player 1 Feed:", 1400 ,120);
 		if (ObjectManager.player1.get(0).spaceValue == ObjectManager.spaces.get(25).id) {
 			ObjectManager.player1.get(0).inJail = true;
 			ObjectManager.player1.get(0).spaceValue = ObjectManager.spaces.get(9).id;
 			ObjectManager.player1.get(0).RollsLeftUntilOutOfJail = 3;
-			g.drawString("Well you were caught with a fidget spinner.", 1400 ,100);
-			g.drawString("The only punishment for that is DEATH...", 1400 ,140);
+			g.drawString("Well you were caught with a fidget spinner.", 1400 ,140);
+			g.drawString("The only punishment for that is DEATH...", 1400 ,160);
 			g.drawString("I mean...", 1400 ,180);
 			g.drawString("3 days jail time...", 1400 ,220);
 		}
@@ -81,70 +81,77 @@ public class Player1 extends GameObject {
 				|| ObjectManager.player1.get(0).spaceValue == ObjectManager.spaces.get(19).id
 				|| ObjectManager.player1.get(0).spaceValue == ObjectManager.spaces.get(27).id) {
 			int chance = new Random().nextInt(55);
+			g.setColor(Color.GREEN.darker());
+			g.fillRect(1200, 400, 350, 150);
+			g.setColor(Color.BLACK);
+			g.drawString( "CHANCE:", 1210, 420);
 			if (chance == 0||chance == 1||chance == 2||chance == 3||chance == 4||chance == 5||chance == 6||chance == 7||chance == 8||chance == 9) {
-				g.drawString("You bought a lottery ticket for 5 Dollars.", 1400 ,140);
-				g.drawString("However, you lost...", 1400 ,160);
+				g.drawString("You bought a lottery ticket for 5 Dollars.", 1210 ,440);
+				g.drawString("However, you lost...", 1210 ,460);
 				ObjectManager.player1.get(0).muneez-=5;
 			}
 			else if (chance == 10) {
-				g.drawString("You bought a lottery ticket for 5 Dollars.", 1400 ,140);
-				g.drawString("AND YOU WON 10,000 DOLLARS!!!", 1400 ,160);
-				g.drawString("Minus the 5 Dollars you spent...", 1400 ,180);
+				g.drawString("You bought a lottery ticket for 5 Dollars.", 1210 ,440);
+				g.drawString("AND YOU WON 10,000 DOLLARS!!!", 1210 ,460);
+				g.drawString("Minus the 5 Dollars you spent...", 1210 ,480);
 				ObjectManager.player1.get(0).muneez+=9995;
 			}
 			else if (chance == 11||chance == 12||chance == 13||chance == 14||chance == 15||chance == 16) {
-				g.drawString("You have been sent to jail.", 1400 ,140);
-				g.drawString("Not enough memes...", 1400 ,160);
+				g.drawString("You have been sent to jail.", 1210 ,440);
+				g.drawString("Not enough memes...", 1210 ,460);
 				ObjectManager.player1.get(0).inJail = true;
 				ObjectManager.player1.get(0).spaceValue = ObjectManager.spaces.get(9).id;
 				ObjectManager.player1.get(0).RollsLeftUntilOutOfJail = 3;
 				ObjectManager.player1.get(0).x = ObjectManager.spaces.get(9).x+30;
 			}
 			else if (chance == 17||chance == 18||chance == 19||chance == 20) {
-				g.drawString("Grumpy Cat summons you.", 1400 ,140);
-				g.drawString("Advance to "+"''Grumpy Cat''", 1400 ,160);
-				g.drawString("If unowned, you may buy the space Grumpy Cat resides on.", 1400 ,180);
+				g.drawString("Grumpy Cat summons you.", 1210 ,440);
+				g.drawString("Advance to "+"''Grumpy Cat''", 1210 ,460);
+				g.drawString("If unowned, you may buy the space", 1210 ,480);
+				g.drawString("Grumpy Cat resides on.", 1210 ,500);
 				ObjectManager.player1.get(0).spaceValue = ObjectManager.spaces.get(31).id;
 			}
 			else if (chance >= 20&&chance<=25) {
-				g.drawString("Advance to Go and collect $200", 1400 ,140);
+				g.drawString("Advance to Go and collect $200", 1210 ,440);
 				ObjectManager.player1.get(0).spaceValue = ObjectManager.spaces.get(0).id;
 				ObjectManager.player1.get(0).muneez+=200;
 			}
 			else if (chance >= 26&&chance<=30) {
-				g.drawString("Aw You got a dislike. Lose $50", 1400 ,140);
+				g.drawString("Aw You got a dislike. Lose $50", 1210 ,440);
 				ObjectManager.player1.get(0).muneez-=50;
 			}
 			else if (chance >= 31&&chance<=35) {
-				g.drawString("Do u kno da wae? No u dont.", 1400 ,140);
-				g.drawString( "Onleh me and my bruddas kno da wae",1400,160);
-				g.drawString( "Lose $100 for not knoing da wae and go to sanic.",1400,180);
+				g.drawString("Do u kno da wae? No u dont.", 1210 ,440);
+				g.drawString( "Onleh me and my bruddas kno da wae",1210 ,460);
+				g.drawString( "Lose $100 u not kno da wae, go to sanic.",1210 ,480);
 				ObjectManager.player1.get(0).muneez-=100;
 				ObjectManager.player1.get(0).spaceValue = ObjectManager.spaces.get(12).id;
 			}
 			else if (chance >= 36&&chance<=40) {
-				g.drawString("You rekt Som Roblux Noobs. GG", 1400 ,140);
-				g.drawString("You got 100 Robux, I mean $100.", 1400 ,160);
+				g.drawString("You rekt Som Roblux Noobs. GG", 1210 ,440);
+				g.drawString("You got 100 Robux, I mean $100.", 1210 ,460);
 				ObjectManager.player1.get(0).muneez+=100;
 			}
 			else if (chance >= 41&&chance<=45) {
-				g.drawString("You protested some stuff and you won.", 1400 ,140);
-				g.drawString("Get $10 and go to shrek", 1400 ,160);
+				g.drawString("You protested some stuff and you won.", 1210 ,440);
+				g.drawString("Get $10 and go to shrek", 1210 ,460);
 				ObjectManager.player1.get(0).muneez+=10;
-				ObjectManager.player1.get(0).spaceValue = ObjectManager.spaces.get(24).id;
+				ObjectManager.player1.get(0).spaceValue = ObjectManager.spaces.get(14).id;
 			}
 			else if (chance == 46) {
-				g.drawString("YOLO. Gain $1000 for swag.", 1400 ,140);
+				g.drawString("YOLO. Gain $1000 for swag.", 1210 ,440);
 				ObjectManager.player1.get(0).muneez+=1000;
 			}
 			else if (chance >= 47&&chance<=50) {
-				g.drawString("Ther is vegetal in my staekn. Lose $50", 1400 ,140);
+				g.drawString("Ther is vegetal in my staekn. Lose $50", 1210 ,440);
 				ObjectManager.player1.get(0).muneez-=50;
 			}
 			else if (chance >= 51&&chance<=55) {
-				g.drawString("You stole Fizzy Lifting Drinks and touched the ceiling.", 1400 ,140);
-				g.drawString("You LOSE! You get NOTHING.", 1400 ,160);
-				g.drawString("Lose $100 and all your chocolate and go to Willy Wonka", 1400 ,180);
+				g.drawString("You stole Fizzy Lifting Drinks", 1210 ,440);
+				g.drawString("and touched the ceiling.", 1210 ,460);
+				g.drawString("You LOSE! You get NOTHING.", 1210 ,480);
+				g.drawString("Lose $100 and all your chocolate", 1210 ,500);
+				g.drawString("and go to Willy Wonka", 1210 ,520);
 				ObjectManager.player1.get(0).muneez-=100;
 				ObjectManager.player1.get(0).spaceValue = ObjectManager.spaces.get(21).id;
 			}
@@ -235,12 +242,10 @@ public class Player1 extends GameObject {
 			g.drawString("You have landed on ''Taxes''", 1400 ,140);
 			int taxChance = new Random().nextInt(25);
 			if(taxChance==1) {
-				g.drawString("You must pay $200 to our glorious president Trump", 1400 ,160);
-				g.drawString("for a great wall.", 1400 ,180);
+				g.drawString("and to our glorious president Trump", 1400 ,180);
+				g.drawString("for a great wall.", 1400 ,200);
 			}
-			else {
 				g.drawString("You must pay $200 to the government", 1400 ,160);
-			}
 			ObjectManager.player1.get(0).muneez-=200;
 		}
 		ObjectManager.player1.get(0).x = ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).x + 5;
@@ -251,7 +256,7 @@ public class Player1 extends GameObject {
 		ObjectManager.player1.get(0).y = ObjectManager.spaces.get(ObjectManager.player1.get(0).spaceValue).y + 5;
 		// System.out.println(ObjectManager.spaces.get(ObjectManager.players.get(0).spaceValue).y+5);
 		System.out.println("Space Value: " + ObjectManager.player1.get(0).spaceValue);
-		g.drawString("P.1 Money: "+ObjectManager.player1.get(0).muneez, 1200 ,800);
+		g.drawString("P.1 Money: "+ObjectManager.player1.get(0).muneez, 1250 ,800);
 		try {
 			this.image = ImageIO.read(this.getClass().getResourceAsStream(imageName));
 		} catch (IOException e) {

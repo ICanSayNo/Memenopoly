@@ -16,7 +16,7 @@ public class Memenopoly {
 		setup();
 		frame.addMouseListener(gamePanel);
 		frame.setBackground(new Color(203, 233, 228));
-
+		
 	}
 
 	static void setup() {

@@ -131,6 +131,7 @@ public class MemeGamePanel extends JPanel implements ActionListener, KeyListener
 		if (e.getKeyCode() == KeyEvent.VK_R) {
 			System.out.println("Player Input: Restarting");
 			o=new ObjectManager();
+			ObjectManager.dice.get(0).value=0;
 		}
 		repaint();
 	}
@@ -157,6 +158,7 @@ public class MemeGamePanel extends JPanel implements ActionListener, KeyListener
 		// TODO Auto-generated method stub
 		if (e.getX() > 1480 && e.getY() > 760) {
 			Dice.roll();
+			ObjectManager.dice.get(1).value=ObjectManager.dice.get(0).value;
 			if (ObjectManager.dice.get(1).value == 0) {
 				ObjectManager.dice.get(1).imageName = "diec-1.gif";
 			}
@@ -193,9 +195,9 @@ public class MemeGamePanel extends JPanel implements ActionListener, KeyListener
 			if (ObjectManager.dice.get(0).value == 5) {
 				ObjectManager.dice.get(0).imageName = "diec-6.gif";
 			}
-			if (ObjectManager.dice.get(0).value != ObjectManager.dice.get(1).value) {
+			//if (ObjectManager.dice.get(0).value != ObjectManager.dice.get(1).value) {
 				turn +=1;
-			}
+			//}
 			if (turn >= 2) {
 							turn = 0;
 						}
@@ -224,6 +226,7 @@ public class MemeGamePanel extends JPanel implements ActionListener, KeyListener
 		}
 		repaint();
 		System.out.println("turn "+turn);
+		
 	}
 
 	@Override
