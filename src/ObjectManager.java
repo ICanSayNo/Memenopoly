@@ -5,14 +5,12 @@ import java.util.ArrayList;
 public class ObjectManager {
 	ArrayList<GameObject> objects;
 	static ArrayList<Space> spaces = new ArrayList<Space>();
-	static ArrayList<Player1> player1 = new ArrayList<Player1>();
-	static ArrayList<Player2> player2 = new ArrayList<Player2>();
+	static Player1 player1 =new Player1(100, 560, 150, 100, "troll.png", 0, false, 2000, 0);
+	static Player2 player2 =new Player2(100, 560, 150, 100, "derp.png", 0, false, 2000, 0);
 	static ArrayList<Dice> dice = new ArrayList<Dice>();
 	int turn=0;
 		
 	ObjectManager() {
-		player1 = new ArrayList<Player1>();
-		player2 = new ArrayList<Player2>();
 		dice = new ArrayList<Dice>();
 		spaces = new ArrayList<Space>();
 		initSpaces();
@@ -20,7 +18,7 @@ public class ObjectManager {
 	}
 
 	public void draw(Graphics g) {
-		
+		System.out.println();
 		for (Space s : spaces) {
 			s.draw(g);
 			for (int i = 0; i < 32; i++) {
@@ -47,15 +45,16 @@ public class ObjectManager {
 
 			d.draw(g);
 		}
-		for (Player1 p : player1) {
 
-			p.draw(g);
-		}
-		for (Player2 p : player2) {
+			player1.draw(g);
+			g.drawString("P.1 Money: "+ObjectManager.player1.muneez, 1250 ,800);
+			g.drawImage(player1.image, 1170, 780, null);
 
-			p.draw(g);
-		}
-			if(ObjectManager.player1.get(0).muneez<=0) {
+			player2.draw(g);
+			g.drawString("P.2 Money: "+ObjectManager.player2.muneez, 1250 ,890);
+			g.drawImage(player2.image, 1170, 860, null);
+			
+			if(ObjectManager.player1.muneez<=0) {
 			System.out.println("Sum stuf is happenin");
 				g.setColor(Color.gray);
 				g.fillRect(0, 0, 1800, 950);
@@ -64,7 +63,7 @@ public class ObjectManager {
 				g.drawString("Press R to Restart", 800, 440);
 			}
 			
-			if(ObjectManager.player2.get(0).muneez<=0) {
+			if(ObjectManager.player2.muneez<=0) {
 				System.out.println("Sum stuf is happenin");
 					g.setColor(Color.gray);
 					g.fillRect(0, 0, 1800, 950);
@@ -124,9 +123,7 @@ public class ObjectManager {
 		dice.add(new Dice(1000, 560, 150, 100, 1660, 660, "diec-1.gif", 10));
 		dice.add(new Dice(1000, 660, 150, 100, 1560, 660, "diec-1.gif", 0));
 		dice.add(new Dice(1000, 660, 150, 100, 1480, 760, "roll.png", 0));
-		player1.add(new Player1(100, 560, 150, 100, "troll.png", 0, false, 2000, 0));
-		player1.add(new Player1(1190, 780, 150, 100, "troll.png", 0, false, 0, 0));
-		player2.add(new Player2(100, 560, 150, 100, "derp.png", 0, false, 2000, 0));
-		player2.add(new Player2(1190, 850, 150, 100, "derp.png", 0, false, 2000, 0));
+		
+
 	}
 }
