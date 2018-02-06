@@ -59,7 +59,9 @@ public class MemeGamePanel extends JPanel implements ActionListener, KeyListener
 			System.out.println("Turn: " + turn);
 			System.out.println(
 					"Player Owner: " + ObjectManager.spaces.get(ObjectManager.player1.spaceValue).owner);
+
 			if (turn == 0) {
+				
 				if (ObjectManager.spaces.get(ObjectManager.player1.spaceValue).id == 1
 						|| ObjectManager.spaces.get(ObjectManager.player1.spaceValue).id == 2
 						|| ObjectManager.spaces.get(ObjectManager.player1.spaceValue).id == 5
@@ -80,18 +82,24 @@ public class MemeGamePanel extends JPanel implements ActionListener, KeyListener
 						|| ObjectManager.spaces.get(ObjectManager.player1.spaceValue).id == 30
 						|| ObjectManager.spaces.get(ObjectManager.player1.spaceValue).id == 31) {
 					if (ObjectManager.spaces.get(ObjectManager.player1.spaceValue).owner == 0) {
+						if (ObjectManager.player1.muneez >= (60
+								+ (ObjectManager.spaces.get(ObjectManager.player1.spaceValue).id * 20))) {
 						ObjectManager.player1.muneez -= (60
 								+ (ObjectManager.spaces.get(ObjectManager.player1.spaceValue).id * 20));
 						ObjectManager.spaces.get(ObjectManager.player1.spaceValue).owner = 1;
 					}
+					}
 					else if (ObjectManager.spaces.get(ObjectManager.player1.spaceValue).owner == 1) {
+						if (ObjectManager.player1.muneez >= ((ObjectManager.spaces.get(ObjectManager.player1.spaceValue).id * 20/2))) {
 						ObjectManager.player1.muneez -= ((ObjectManager.spaces.get(ObjectManager.player1.spaceValue).id * 20/2));
 						ObjectManager.spaces.get(ObjectManager.player1.spaceValue).upgrade+= 1;
 					}
-					
+					}
 				}
 			}
+			
 			if (turn == 1) {
+
 				if (ObjectManager.spaces.get(ObjectManager.player2.spaceValue).id == 1
 						|| ObjectManager.spaces.get(ObjectManager.player2.spaceValue).id == 2
 						|| ObjectManager.spaces.get(ObjectManager.player2.spaceValue).id == 5
@@ -113,17 +121,21 @@ public class MemeGamePanel extends JPanel implements ActionListener, KeyListener
 						|| ObjectManager.spaces.get(ObjectManager.player2.spaceValue).id == 31) {
 
 					if (ObjectManager.spaces.get(ObjectManager.player2.spaceValue).owner == 0) {
+						if (ObjectManager.player2.muneez >= (60
+								+ (ObjectManager.spaces.get(ObjectManager.player2.spaceValue).id * 20))) {
 						ObjectManager.player2.muneez -= (60
 								+ (ObjectManager.spaces.get(ObjectManager.player2.spaceValue).id * 20));
 						ObjectManager.spaces.get(ObjectManager.player2.spaceValue).owner = 2;
 					}
+					}
 					else if (ObjectManager.spaces.get(ObjectManager.player2.spaceValue).owner == 2) {
+						if (ObjectManager.player2.muneez >= ((ObjectManager.spaces.get(ObjectManager.player2.spaceValue).id * 20/2))) {
 						ObjectManager.player2.muneez -= ((ObjectManager.spaces.get(ObjectManager.player2.spaceValue).id * 20/2));
 						ObjectManager.spaces.get(ObjectManager.player2.spaceValue).upgrade+= 1;
 					}
+					}
 				}
 			}
-			
 		}
 		if (e.getKeyCode() == KeyEvent.VK_N) {
 			System.out.println("Player Input: No");
